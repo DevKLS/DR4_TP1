@@ -1,0 +1,35 @@
+﻿
+@page
+@model ProductCatalog.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Catálogo de Produtos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Catálogo de Produtos</h1>
+    <p>Conheça nossos produtos disponíveis.</p>
+</div>
+
+<div class="container mt-4">
+    <h2>Produtos cadastrados</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nome do produto</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>R$ @product.Price.ToString("F2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

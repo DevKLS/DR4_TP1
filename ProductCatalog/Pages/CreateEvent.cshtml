@@ -1,0 +1,75 @@
+﻿
+@page
+@model ProductCatalog.Pages.CreateEventModel
+
+@{
+    ViewData["Title"] = "Cadastrar Evento";
+}
+
+<div class="container mt-4">
+
+    <h1>Cadastrar Evento</h1>
+
+    <p>Preencha as informações do novo evento.</p>
+
+    <form method="post">
+
+        <div class="mb-3">
+            <label asp-for="NewEvent.Title" class="form-label">
+                Título
+            </label>
+
+            <input asp-for="NewEvent.Title"
+                   class="form-control"
+                   placeholder="Nome do evento" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NewEvent.Date" class="form-label">
+                Data
+            </label>
+
+            <input asp-for="NewEvent.Date"
+                   type="date"
+                   class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NewEvent.Location" class="form-label">
+                Local
+            </label>
+
+            <input asp-for="NewEvent.Location"
+                   class="form-control"
+                   placeholder="Local do evento" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Cadastrar Evento
+        </button>
+
+    </form>
+
+    <div asp-validation-summary="All"
+         class="text-danger mt-3">
+    </div>
+
+    @if (Model.EventCreated)
+    {
+        <div class="alert alert-success mt-4">
+            <h4>Evento cadastrado com sucesso!</h4>
+
+            <p><strong>Título:</strong> @Model.NewEvent.Title</p>
+
+            <p>
+                <strong>Data:</strong>
+                @Model.NewEvent.Date.ToString("dd/MM/yyyy")
+            </p>
+
+            <p><strong>Local:</strong> @Model.NewEvent.Location</p>
+
+            <p>O registro também foi enviado ao console da aplicação.</p>
+        </div>
+    }
+
+</div>

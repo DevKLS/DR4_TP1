@@ -1,0 +1,19 @@
+1. Qual é a finalidade da pasta Pages?
+
+A pasta Pages armazena as páginas Razor da aplicação. Cada página normalmente é composta por um arquivo .cshtml, que contém a interface em HTML com sintaxe Razor, e pode ter um arquivo .cshtml.cs associado (PageModel), responsável pela lógica da página, como carregar dados e tratar formulários.
+
+2. Qual é a função do arquivo Program.cs?
+
+O arquivo Program.cs é o ponto de entrada e configuração da aplicação. Nele são registrados os serviços necessários, configurado o pipeline de requisições HTTP e definidas funcionalidades como Razor Pages, arquivos estáticos e roteamento.
+
+3. Onde os serviços são configurados?
+
+Os serviços são registrados no arquivo Program.cs, por meio de builder.Services. Por exemplo, AddRazorPages() registra os serviços necessários para Razor Pages. Outros serviços podem ser registrados com AddScoped(), AddTransient() ou AddSingleton(), conforme o ciclo de vida desejado.
+
+4. Como funciona o roteamento de URLs?
+
+O roteamento associa uma URL a uma página ou endpoint da aplicação. Em Razor Pages, as rotas normalmente são derivadas da localização dos arquivos dentro da pasta Pages. Por exemplo, Pages/Index.cshtml corresponde à página inicial (/), enquanto Pages/ProductCatalog/AddProduct.cshtml pode ser acessada por /ProductCatalog/AddProduct. O método MapRazorPages(), configurado no Program.cs, mapeia as páginas para responder às requisições.
+
+Conclusão
+
+A estrutura do ASP.NET Core Razor Pages organiza a aplicação em páginas e separa a interface da lógica de cada página. O arquivo Program.cs centraliza a configuração dos serviços e do processamento das requisições, enquanto o roteamento direciona cada URL para a página correspondente.
